@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { GeistSans, GeistMono, hourglassOfShine } from "@/lib/fonts"
+import { Navbar } from "@/components/layout/Navbar"
+import { Footer } from "@/components/layout/Footer"
 import "@/styles/globals.css"
 
 export const metadata: Metadata = {
@@ -15,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${hourglassOfShine.variable}`}>
       <body className="bg-background text-foreground font-sans antialiased">
-        {children}
+        <Navbar />
+        <main className="min-h-screen pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   )

@@ -1,9 +1,10 @@
-﻿export default function Home() {
+import { PageWrapper } from "@/components/layout/PageWrapper"
+
+export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold tracking-tight">
-        Shivani Dattani &mdash; Portfolio
-      </h1>
-    </main>
+    <PageWrapper>
+      <h1 className="text-4xl font-bold text-foreground">Shivani Dattani</h1>
+      <p className="text-muted-foreground mt-4">Portfolio coming soon.</p>
+    </PageWrapper>
   )
 }
