@@ -6,14 +6,17 @@ export default function Home() {
     <>
       <HeroSection />
 
-      {/* Work sections — will be wrapped properly in Tasks 23+24 */}
-      <div id="work" className="max-w-5xl mx-auto px-4 sm:px-6 pb-24">
+      {/* Work sections */}
+      <div id="work" className="max-w-5xl mx-auto px-4 sm:px-6 pb-32">
         {/* From the Field */}
-        <section className="mb-16">
-          <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">
-            From the Field
-          </p>
-          <h2 className="text-2xl font-bold text-foreground mb-8">
+        <section className="mb-24 relative">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px bg-gradient-to-r from-primary/50 to-transparent flex-1 max-w-[40px]"></div>
+            <p className="text-xs font-mono tracking-widest uppercase text-primary font-medium">
+              From the Field
+            </p>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-10 tracking-tight">
             Real work, real constraints
           </h2>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -33,11 +36,14 @@ export default function Home() {
         </section>
 
         {/* Independent Projects */}
-        <section>
-          <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">
-            Independent Projects
-          </p>
-          <h2 className="text-2xl font-bold text-foreground mb-8">
+        <section className="relative">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px bg-gradient-to-r from-border to-transparent flex-1 max-w-[40px]"></div>
+            <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground font-medium">
+              Independent Projects
+            </p>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-10 tracking-tight">
             Self-directed builds
           </h2>
           <div className="grid gap-6 sm:grid-cols-2">
