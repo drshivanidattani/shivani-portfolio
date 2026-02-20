@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { AnimatedLogo } from "./AnimatedLogo"
 import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
 
 const workLinks = [
@@ -69,23 +70,18 @@ export function Navbar() {
   const isWorkActive = allWorkHrefs.includes(pathname)
 
   const linkClass = (href: string) =>
-    `text-sm transition-colors ${
-      isActive(href) ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
+    `text-sm transition-colors ${isActive(href) ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
     }`
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-primary shrink-0">
-          <Image
-            src="/logo.svg"
-            alt="Shivani Dattani"
-            width={200}
-            height={60}
-            className="h-14 w-auto"
-            priority
-          />
+        <Link href="/" className="text-primary shrink-0 relative flex items-center h-full">
+          {/* We import AnimatedLogo dynamically or normally depending on setup, but it's a client component so normal import is fine */}
+          <div className="flex items-center">
+            <AnimatedLogo />
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -99,9 +95,8 @@ export function Navbar() {
           >
             <button
               onClick={() => setWorkOpen(!workOpen)}
-              className={`flex items-center gap-1 text-sm transition-colors ${
-                isWorkActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
-              }`}
+              className={`flex items-center gap-1 text-sm transition-colors ${isWorkActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
+                }`}
             >
               Work
               <ChevronDown className={`w-3.5 h-3.5 transition-transform ${workOpen ? "rotate-180" : ""}`} />
@@ -119,11 +114,10 @@ export function Navbar() {
                         <Link
                           key={item.href}
                           href={item.href}
-                          className={`block px-2 py-1.5 rounded text-sm transition-colors ${
-                            isActive(item.href)
-                              ? "text-primary bg-primary/5"
-                              : "text-foreground hover:text-primary hover:bg-primary/5"
-                          }`}
+                          className={`block px-2 py-1.5 rounded text-sm transition-colors ${isActive(item.href)
+                            ? "text-primary bg-primary/5"
+                            : "text-foreground hover:text-primary hover:bg-primary/5"
+                            }`}
                         >
                           {item.name}
                         </Link>
@@ -192,9 +186,8 @@ export function Navbar() {
             <div>
               <button
                 onClick={() => setMobileWorkOpen(!mobileWorkOpen)}
-                className={`flex items-center justify-between w-full text-sm transition-colors ${
-                  isWorkActive ? "text-primary font-medium" : "text-muted-foreground"
-                }`}
+                className={`flex items-center justify-between w-full text-sm transition-colors ${isWorkActive ? "text-primary font-medium" : "text-muted-foreground"
+                  }`}
               >
                 Work
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileWorkOpen ? "rotate-180" : ""}`} />
