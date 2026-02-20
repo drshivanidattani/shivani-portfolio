@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" remote -v)",
+      "Bash(powershell.exe -NoProfile -Command \"Set-Location ''C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site''; git remote -v\")",
+      "Bash(GIT_DIR=\"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\\\\.git\" GIT_WORK_TREE=\"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" git remote:*)",
+      "Bash(git --version:*)",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" remote -v)",
+      "Bash(echo:*)",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" remote add origin https://github.com/drshivanidattani/shivani-portfolio.git)",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" ls-files:*)",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" add .)"
+    ]
+  }
+}

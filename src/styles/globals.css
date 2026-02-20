@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   DESIGN SYSTEM — Color Scales
+   Source: Translated from Perfect Roomies system
+   Preserved as portable foundation
+   ============================================ */
+
+:root {
+  /* ----------------------------------------
+     Color Scales (12 scales, 11 steps each)
+     Step 0 = lightest, Step 100 = darkest
+     ---------------------------------------- */
+
+  /* Rose Pink Scale */
+  --rose-0: #FFEFF2;
+  --rose-10: #FFBFD4;
+  --rose-20: #FF8FB6;
+  --rose-30: #FF6098;
+  --rose-40: #FF307A;
+  --rose-50: #FF005C;
+  --rose-60: #D4004D;
+  --rose-70: #A9003E;
+  --rose-80: #7E002E;
+  --rose-90: #53001F;
+  --rose-100: #280010;
+
+  /* Purple Heart Scale */
+  --purple-0: #FAF6FE;
+  --purple-10: #E4D0F6;
+  --purple-20: #CEAAEF;
+  --purple-30: #B985E7;
+  --purple-40: #A35FE0;
+  --purple-50: #8D39D8;
+  --purple-60: #762FB4;
+  --purple-70: #5F2591;
+  --purple-80: #471B6D;
+  --purple-90: #30114A;
+  --purple-100: #190726;
+
+  /* Beaver Clay Neutrals */
+  --clay-0: #F7F4EB;
+  --clay-10: #E2DDD1;
+  --clay-20: #CDC6B7;
+  --clay-30: #B8B09C;
+  --clay-40: #A39982;
+  --clay-50: #8E8268;
+  --clay-60: #796F59;
+  --clay-70: #645C4A;
+  --clay-80: #50483B;
+  --clay-90: #3B352C;
+  --clay-100: #26221D;
+
+  /* Sunshade Orange Scale */
+  --orange-0: #FFFAEB;
+  --orange-10: #FFE7C3;
+  --orange-20: #FFD49B;
+  --orange-30: #FFC072;
+  --orange-40: #FFAD4A;
+  --orange-50: #FF9A22;
+  --orange-60: #D47F1B;
+  --orange-70: #A96415;
+  --orange-80: #7E490E;
+  --orange-90: #532E08;
+  --orange-100: #281301;
+
+  /* Brandeis Blue Scale */
+  --blue-0: #EDF0FF;
+  --blue-10: #D4DCFF;
+  --blue-20: #ACBDFF;
+  --blue-30: #85A1FF;
+  --blue-40: #5A87FF;
+  --blue-50: #006FFF;
+  --blue-60: #005FDC;
+  --blue-70: #004AAE;
+  --blue-80: #00327D;
+  --blue-90: #001B4A;
+  --blue-100: #000F30;
+
+  /* Boston Blue Scale */
+  --boston-0: #F1FAFA;
+  --boston-10: #CCE5E8;
+  --boston-20: #A8CFD6;
+  --boston-30: #83BAC4;
+  --boston-40: #5FA4B2;
+  --boston-50: #3A8FA0;
+  --boston-60: #327988;
+  --boston-70: #2A636F;
+  --boston-80: #214C57;
+  --boston-90: #19363E;
+  --boston-100: #112026;
+
+  /* Cinnabar Scale — Portfolio primary accent lives here */
+  --cinnabar-0: #FFEDEC;
+  --cinnabar-10: #FED4D2;
+  --cinnabar-20: #FDADA7;
+  --cinnabar-30: #FD877B;
+  --cinnabar-40: #FD5D42;
+  --cinnabar-50: #E74011;
+  --cinnabar-60: #C7360D;
+  --cinnabar-70: #9C2808;
+  --cinnabar-80: #6F1A04;
+  --cinnabar-90: #400B01;
+  --cinnabar-100: #280500;
+
+  /* Rust Brown Scale */
+  --rust-0: #FBF6F1;
+  --rust-10: #EDD7CE;
+  --rust-20: #DEB8AB;
+  --rust-30: #D09989;
+  --rust-40: #C17A66;
+  --rust-50: #B35B43;
+  --rust-60: #974C39;
+  --rust-70: #7B3D2F;
+  --rust-80: #5E2F24;
+  --rust-90: #42201A;
+  --rust-100: #261110;
+
+  /* Harvest Gold Scale */
+  --gold-0: #FCFCEA;
+  --gold-10: #F8ECC1;
+  --gold-20: #F5DD97;
+  --gold-30: #F1CD6E;
+  --gold-40: #EEBE44;
+  --gold-50: #EAAE1B;
+  --gold-60: #C39017;
+  --gold-70: #9C7113;
+  --gold-80: #74530F;
+  --gold-90: #4D340B;
+  --gold-100: #261607;
+
+  /* Candy Red Scale */
+  --candy-0: #FFF0F0;
+  --candy-10: #FEC1C1;
+  --candy-20: #FD9393;
+  --candy-30: #FD6464;
+  --candy-40: #FC3636;
+  --candy-50: #FB0707;
+  --candy-60: #D00606;
+  --candy-70: #A60404;
+  --candy-80: #7B0303;
+  --candy-90: #510101;
+  --candy-100: #260000;
+
+  /* Grey Scale (Cool Neutral) */
+  --grey-0: #F9FAFB;
+  --grey-10: #F3F4F6;
+  --grey-20: #E5E7EB;
+  --grey-30: #D1D5DB;
+  --grey-40: #9CA3AF;
+  --grey-50: #6B7280;
+  --grey-60: #4B5563;
+  --grey-70: #374151;
+  --grey-80: #1F2937;
+  --grey-90: #111827;
+  --grey-100: #030712;
+
+  /* ----------------------------------------
+     Original Semantic Tokens
+     Carried over from Perfect Roomies system
+     ---------------------------------------- */
+
+  --color-ai: var(--purple-50);           /* #8D39D8 — AI elements */
+  --color-ai-light: var(--purple-10);     /* #E4D0F6 — AI backgrounds */
+  --color-ai-dark: var(--purple-70);      /* #5F2591 — AI dark mode */
+  --color-trust: var(--blue-50);          /* #006FFF — Trust/verification */
+  --color-trust-light: var(--blue-10);    /* #D4DCFF — Trust backgrounds */
+  --color-trust-dark: var(--blue-70);     /* #004AAE — Trust dark mode */
+  --color-roommate: var(--orange-50);     /* #FF9A22 — Roommate/connection */
+  --color-roommate-light: var(--orange-10); /* #FFE7C3 — Roommate backgrounds */
+  --color-roommate-dark: var(--orange-70);  /* #A96415 — Roommate dark mode */
+
+  /* ----------------------------------------
+     Portfolio Semantic Tokens
+     Maps locked design decisions to scales
+     See CLAUDE.md → Design System → Colors
+     ---------------------------------------- */
+
+  --color-primary: var(--cinnabar-50);        /* #E74011 — Brand orange-red */
+  --color-primary-light: var(--cinnabar-10);  /* #FED4D2 — Primary tint */
+  --color-primary-dark: var(--cinnabar-70);   /* #9C2808 — Primary shade */
+  --color-secondary: var(--blue-50);          /* #006FFF — Secondary accent */
+  --color-secondary-light: var(--blue-10);    /* #D4DCFF — Secondary tint */
+  --color-secondary-dark: var(--blue-70);     /* #004AAE — Secondary shade */
+}
+
+/* ============================================
+   SHADCN/UI THEME TOKENS
+   Dark theme only (portfolio is dark-mode-only)
+   Values in HSL without hsl() wrapper
+   Applied as: hsl(var(--token)) in Tailwind
+   ============================================ */
+
+@layer base {
+  :root {
+    /* Background & Foreground */
+    --background: 0 0% 4%;              /* #0A0A0A */
+    --foreground: 0 0% 98%;             /* #FAFAFA */
+
+    /* Cards & Popovers */
+    --card: 0 0% 7%;                    /* #111111 */
+    --card-foreground: 0 0% 98%;        /* #FAFAFA */
+    --popover: 0 0% 7%;                 /* #111111 */
+    --popover-foreground: 0 0% 98%;     /* #FAFAFA */
+
+    /* Primary — Cinnabar #E74011 */
+    --primary: 13 86% 49%;              /* #E74011 */
+    --primary-foreground: 0 0% 100%;    /* #FFFFFF */
+
+    /* Secondary — Brandeis Blue #006FFF */
+    --secondary: 214 100% 50%;          /* #006FFF */
+    --secondary-foreground: 0 0% 100%;  /* #FFFFFF */
+
+    /* Muted — Dark surface for subdued elements */
+    --muted: 0 0% 10%;                  /* #1A1A1A */
+    --muted-foreground: 0 0% 53%;       /* #888888 */
+
+    /* Accent — Hover/active backgrounds */
+    --accent: 0 0% 10%;                 /* #1A1A1A */
+    --accent-foreground: 0 0% 98%;      /* #FAFAFA */
+
+    /* Destructive — Candy Red */
+    --destructive: 0 97% 51%;           /* #FB0707 (candy-50) */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+
+    /* Borders & Inputs */
+    --border: 0 0% 15%;                 /* #262626 — subtle divider */
+    --input: 0 0% 15%;                  /* #262626 — input borders */
+
+    /* Focus Ring — matches primary */
+    --ring: 13 86% 49%;                 /* #E74011 */
+
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+
+  /* Base element styles */
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   Thin, dark scrollbar matching the dark theme
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility: hide scrollbar (for horizontal scroll containers, carousels, etc.) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
