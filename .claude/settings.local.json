@@ -21,7 +21,15 @@
       "mcp__claude_ai_Notion__notion-update-page",
       "Bash(powershell.exe -NoProfile -Command:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(ls -la \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\\\\src\\\\app\"\" 2>/dev/null; echo \"---\"; ls \"C:Shivani ClaudePM Projectportfolio-site\"\")",
+      "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -File /tmp/create_files.ps1)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" add .)",
+      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" commit -m \"Install animation + icon libraries, fix encoding\")",
+      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" push origin main)"
     ]
   }
 }
