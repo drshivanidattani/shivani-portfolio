@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
 
 const workLinks = [
   {
@@ -22,29 +23,46 @@ const workLinks = [
   },
 ]
 
+const contactLinks = [
+  { name: "Email", href: "mailto:shivani@example.com", icon: Mail, external: false },
+  { name: "LinkedIn", href: "https://linkedin.com/in/shivani-dattani", icon: Linkedin, external: true },
+  { name: "Book a Call", href: "https://calendly.com/shivani-dattani", icon: Calendar, external: true },
+]
+
 const allWorkHrefs = workLinks.flatMap((s) => s.items.map((i) => i.href))
 
 export function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [workOpen, setWorkOpen] = useState(false)
+  const [contactOpen, setContactOpen] = useState(false)
+  // DECISION: separate state for mobile collapsibles vs desktop dropdowns
+  const [mobileWorkOpen, setMobileWorkOpen] = useState(false)
+  const [mobileContactOpen, setMobileContactOpen] = useState(false)
+  const workRef = useRef<HTMLDivElement>(null)
+  const contactRef = useRef<HTMLDivElement>(null)
 
-  // Close dropdown on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDropdownOpen(false)
+      if (workRef.current && !workRef.current.contains(e.target as Node)) {
+        setWorkOpen(false)
+      }
+      if (contactRef.current && !contactRef.current.contains(e.target as Node)) {
+        setContactOpen(false)
       }
     }
     document.addEventListener("mousedown", handleClick)
     return () => document.removeEventListener("mousedown", handleClick)
   }, [])
 
-  // Close mobile menu on route change
+  // Close everything on route change
   useEffect(() => {
     setMobileOpen(false)
-    setDropdownOpen(false)
+    setWorkOpen(false)
+    setContactOpen(false)
+    setMobileWorkOpen(false)
+    setMobileContactOpen(false)
   }, [pathname])
 
   const isActive = (href: string) => pathname === href
@@ -59,34 +77,37 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-lg font-bold tracking-tight text-foreground">
-          Shivani Dattani
+        <Link href="/" className="text-primary shrink-0">
+          <Image
+            src="/logo.svg"
+            alt="Shivani Dattani"
+            width={120}
+            height={36}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
         <div className="flex items-center gap-8 max-md:hidden">
-          <Link href="/" className={linkClass("/")}>
-            Home
-          </Link>
-
           {/* Work dropdown */}
           <div
-            ref={dropdownRef}
+            ref={workRef}
             className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            onMouseEnter={() => setWorkOpen(true)}
+            onMouseLeave={() => setWorkOpen(false)}
           >
             <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
+              onClick={() => setWorkOpen(!workOpen)}
               className={`flex items-center gap-1 text-sm transition-colors ${
                 isWorkActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
               }`}
             >
               Work
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${workOpen ? "rotate-180" : ""}`} />
             </button>
 
-            {dropdownOpen && (
+            {workOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
                 <div className="bg-card border border-border rounded-lg shadow-lg p-4 min-w-[220px]">
                   {workLinks.map((section) => (
@@ -117,6 +138,40 @@ export function Navbar() {
           <Link href="/the-path" className={linkClass("/the-path")}>
             My Journey
           </Link>
+
+          {/* Contact dropdown */}
+          <div
+            ref={contactRef}
+            className="relative"
+            onMouseEnter={() => setContactOpen(true)}
+            onMouseLeave={() => setContactOpen(false)}
+          >
+            <button
+              onClick={() => setContactOpen(!contactOpen)}
+              className={`flex items-center gap-1 text-sm transition-colors text-muted-foreground hover:text-foreground`}
+            >
+              Contact
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${contactOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {contactOpen && (
+              <div className="absolute top-full right-0 pt-2">
+                <div className="bg-card border border-border rounded-lg shadow-lg p-4 min-w-[200px]">
+                  {contactLinks.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="flex items-center gap-2.5 px-2 py-1.5 rounded text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+                    >
+                      <item.icon className="w-4 h-4 text-muted-foreground" />
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile hamburger */}
@@ -132,29 +187,67 @@ export function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background border-b border-border px-6 py-4">
-          <div className="flex flex-col gap-4">
-            <Link href="/" className={linkClass("/")}>
-              Home
-            </Link>
-
-            {workLinks.map((section) => (
-              <div key={section.label}>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                  {section.label}
-                </p>
-                <div className="flex flex-col gap-2 pl-3">
-                  {section.items.map((item) => (
-                    <Link key={item.href} href={item.href} className={linkClass(item.href)}>
-                      {item.name}
-                    </Link>
+          <div className="flex flex-col gap-3">
+            {/* Work — collapsible */}
+            <div>
+              <button
+                onClick={() => setMobileWorkOpen(!mobileWorkOpen)}
+                className={`flex items-center justify-between w-full text-sm transition-colors ${
+                  isWorkActive ? "text-primary font-medium" : "text-muted-foreground"
+                }`}
+              >
+                Work
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileWorkOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileWorkOpen && (
+                <div className="mt-2 ml-1 flex flex-col gap-3">
+                  {workLinks.map((section) => (
+                    <div key={section.label}>
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1.5">
+                        {section.label}
+                      </p>
+                      <div className="flex flex-col gap-1.5 pl-3">
+                        {section.items.map((item) => (
+                          <Link key={item.href} href={item.href} className={linkClass(item.href)}>
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
-              </div>
-            ))}
+              )}
+            </div>
 
             <Link href="/the-path" className={linkClass("/the-path")}>
               My Journey
             </Link>
+
+            {/* Contact — collapsible */}
+            <div>
+              <button
+                onClick={() => setMobileContactOpen(!mobileContactOpen)}
+                className="flex items-center justify-between w-full text-sm text-muted-foreground transition-colors"
+              >
+                Contact
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileContactOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileContactOpen && (
+                <div className="mt-2 ml-1 flex flex-col gap-1.5 pl-3">
+                  {contactLinks.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <item.icon className="w-4 h-4" />
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

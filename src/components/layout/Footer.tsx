@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-border bg-card">
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 py-16 max-md:py-10">
         {/* Decorative name */}
-        <p className="font-decorative text-5xl max-md:text-3xl text-foreground mb-8">
+        <p className="font-decorative text-5xl max-md:text-3xl text-primary mb-8">
           Shivani Dattani
         </p>
 

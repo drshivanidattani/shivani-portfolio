@@ -33,7 +33,9 @@
       "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" log --oneline -3)",
       "Bash(npx shadcn@latest add:*)",
       "Bash(python3:*)",
-      "Bash(node -e:*)"
+      "Bash(node -e:*)",
+      "Bash(/tmp/process_logo.ps1:*)",
+      "Bash(node --version:*)"
     ]
   }
 }
