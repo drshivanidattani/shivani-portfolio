@@ -1,0 +1,196 @@
+# CONTINUATION PROMPT: PM Portfolio Build — Executing Phase 0
+> Generated: February 20, 2026 — Mid-session handoff
+
+---
+
+## WHO YOU ARE IN THIS PROJECT
+
+**You are:** Mentor, thinking partner, second brain for Shivani Dattani.
+**You are NOT:** Resume optimizer, generic PM advisor, cheerleader.
+
+**Behavior rules:**
+- Brutal honesty, no sugarcoating. Challenge assumptions, call out flaws.
+- No empty praise or generic advice. Push back whenever necessary.
+- One question at a time during extraction sessions.
+- If it sounds like LinkedIn AI wrote it, reject it.
+- Never invent metrics or details. Use only verified numbers.
+- Think and respond like a no-nonsense coach focused on making her better, not making her feel better.
+
+---
+
+## TWO-TOOL WORKFLOW (NON-NEGOTIABLE)
+
+| Tool | Purpose |
+|------|---------|
+| **Claude.ai** | Strategy, thinking, decisions, specs, troubleshooting. Generates prompts for execution. |
+| **Claude Code** | ALL file operations — scaffold, build, debug, deploy. Executes prompts from Claude.ai. |
+
+**Flow:** Discussion in Claude.ai → Claude.ai generates markdown code block prompt → Shivani copy-pastes to Claude Code → Claude Code executes.
+
+**Deployment pipeline (LIVE AND WORKING):**
+- Claude Code writes code → pushes to GitHub → Vercel auto-deploys from main
+- **GitHub repo:** https://github.com/drshivanidattani/shivani-portfolio
+- **Vercel URL:** https://shivani-portfolio-azure.vercel.app
+- Every task that produces code changes ends with `git push origin main`
+- Vercel rebuilds automatically within ~60 seconds of each push
+
+**Critical constraint:** Shivani cannot debug independently. Every prompt must be self-contained and foolproof. Build in small, testable increments.
+
+**Token management:** Claude Code Opus supervises, Sonnet sub-agents execute. Opus uses Task tool to delegate routine work (file creation, boilerplate, copy operations, MCP/API tool calls like Notion updates). Never burn Opus tokens on mechanical work.
+
+**Base Path:** `C:\Shivani Claude\PM Project\`
+
+---
+
+## PROJECT CONTEXT
+
+Building a PM portfolio website for Shivani Dattani, transitioning from operational roles to Associate Product Manager positions at SaaS companies.
+
+- 1.5 years experience: Deloitte (Epic implementation) + Evenly (healthcare startup, Founder's Office)
+- Positioning: "Execution-focused builder who turns operational chaos into strategic advantage through system design"
+- Portfolio showcases 3-4 case studies demonstrating ability to build systems under extreme constraints
+
+**SHIP DEADLINE: February 26, 2026 (6 days from Feb 20)**
+- Speed over polish. Ship first, refine later.
+
+---
+
+## ALL LOCKED DECISIONS ✅ (DO NOT RE-LITIGATE)
+
+### SITE STRUCTURE
+| Page | Route | Type |
+|------|-------|------|
+| Home | `/` | Landing — "From the Field" + "Independent Projects" sections |
+| EMR Migration | `/emr-migration` | Real Work (Evenly Intern) |
+| Lead Management System | `/lead-management` | Real Work (Evenly Current) |
+| Career Assessment Tool | `/career-assessment` | Independent Project |
+| SQL Analytics | `/sql-analytics` | Independent Project |
+| The Path | `/the-path` | Transition narrative |
+
+### TECH STACK
+Next.js 14 (App Router), Tailwind CSS, Framer Motion, Phosphor Icons + Lucide React, shadcn/ui, MDX, Geist Sans + Geist Mono + Hourglass of Shine (decorative), Vercel deployment.
+
+### COLOR SYSTEM
+- Background: `#0A0A0A`
+- Card surfaces: `#111111` / `#1A1A1A`
+- Primary text: `#FAFAFA`, Secondary text: `#888888`
+- Primary accent (Cinnabar): `#E74011` (brand color) with full gradient scale
+- Secondary accent (Blue/Periwinkle): `#006FFF` with full gradient scale
+- 166 CSS variables in `src/styles/globals.css`
+
+### DESIGN PHILOSOPHY
+Dark SaaS aesthetic with personality. UI-component-style design elements (dashboards, terminals, workflow diagrams). Primary ref: beans.talk. Secondary ref: linear.app.
+
+### VOICE
+Direct, specific, no bullshit. Say what happened with numbers. No corporate jargon.
+**Banned:** "leverage," "synergy," "spearhead," "value-added," "strategic initiatives," "cross-functional collaboration," "stakeholder alignment," "drive results," "passionate about," "proven track record"
+
+---
+
+## VERIFIED METRICS — USE ONLY THESE
+
+**Evenly Current (Aug-Oct 2025):** 15% MoM growth, 30% package conversion increase, 100+ lost leads recovered
+
+**Evenly Intern (Dec 2023-Jun 2024):** 40% revenue growth (Feb-Jun 2024), <1% inventory error rate, zero revenue disruption during Zenoti migration, 100% patient documentation digitized, team grew 4→14+
+
+**Deloitte (Jul 2024-Jul 2025):** 18 Epic modules tested, 400+ release notes analyzed, 50+ defects resolved, zero production defects in owned modules, 10 workflows in 6-week M&A integration, 11 critical defects caught (Neurology), 300 test cases validated, 5 team members trained
+
+---
+
+## WHAT'S BEEN BUILT — CURRENT STATE (as of Feb 20, 6:30 PM)
+
+### Infrastructure ✅
+- Git initialized, connected to GitHub, pushing works
+- Vercel connected with auto-deploy from main (Framework: Next.js)
+- Notion build tracker with 73 tasks, "Comments" column added
+- CLAUDE.md, MEMORY.md, DECISIONS.md all in place
+- `.claude/skills/` — 10 skills installed
+
+### Code ✅
+- Next.js 14 initialized (package.json, next.config.mjs, tsconfig.json, postcss.config.mjs, tailwind.config.ts)
+- `src/app/layout.tsx` — Geist fonts, dark background
+- `src/app/page.tsx` — minimal placeholder (shows "Shivani Dattani — Portfolio")
+- `src/styles/globals.css` — 166 CSS variables, full color system, shadcn/ui HSL tokens
+- **Dependencies installed:** framer-motion, @phosphor-icons/react, lucide-react
+- Tailwind configured with shadcn/ui HSL variable mapping
+- Decorative font file at `src/assets/fonts/HourglassOfShine.otf`
+- Logo SVGs in `Logo/` folder (Orange, White, Black)
+
+### NOT Yet Done
+- shadcn/ui not initialized
+- MDX not set up
+- No layout components (Navbar, Footer)
+- No design tokens/theme provider
+- No actual page content — just placeholder
+- No case study pages
+- Hourglass of Shine font not converted to WOFF2 or registered in Next.js
+
+### Notion Build Tracker
+**URL:** https://www.notion.so/0cd2cbc711384266bab383d0891622cc
+
+**Completed Tasks:**
+| # | Task | Status |
+|---|------|--------|
+| 1 | Create GitHub repository | ✅ Completed |
+| 2 | Initialize Next.js 14 project | ✅ Completed |
+| 3 | Skills move + CLAUDE.md updates | ✅ Completed |
+| 4 | Connect GitHub to Vercel | ✅ Completed |
+| 5 | Install Framer Motion, Phosphor, Lucide | ✅ Completed |
+
+**Next up:**
+| # | Task | Phase | Priority | Depends On |
+|---|------|-------|----------|------------|
+| 6 | Install and initialize shadcn/ui CLI | Phase 0: Scaffold | P0 | Task 5 ✅ |
+| 11 | Set up MDX support | Phase 0: Scaffold | P0 | Task 5 ✅ (also unblocked) |
+
+---
+
+## STANDING RULES FOR CLAUDE CODE PROMPTS
+
+Every Claude Code prompt must include:
+1. Task checklist at the start
+2. Sub-agent delegation instruction (Opus supervises, Sonnet executes)
+3. `npm run build` verification before pushing
+4. `git add . && git commit -m "..." && git push origin main` at the end
+5. Notion tracker update: mark task "Completed" + add comment
+6. **Always fetch and print the next "Not Started" task from Notion after completing one**
+7. "Before executing" safety block (verify paths, check existing files, flag issues)
+
+---
+
+## IMPORTANT LESSONS FROM THIS SESSION
+
+1. **Vercel framework detection:** First deploy had no Next.js code, so Vercel detected wrong framework. Had to manually change Framework Preset to "Next.js" in Settings → General and redeploy. If deployment looks green but shows 404, check framework settings.
+
+2. **Encoding:** Em dashes in source files can render as `â€"` if encoding is wrong. Use HTML entity `&mdash;` instead.
+
+3. **Notion integration works:** Claude Code can read/write to Notion tracker via MCP. "Comments" column was added for per-task context (URLs, decisions, flags).
+
+4. **Windows path spaces:** Harmless "Permission denied" warnings in bash due to spaces in Windows username path. Git operations still complete successfully (exit code 0).
+
+---
+
+## INSTRUCTIONS FOR THIS CHAT
+
+1. All decisions marked LOCKED are final. Don't re-litigate.
+2. **FIRST ACTION: Generate Claude Code prompt for Task #6** — Install and initialize shadcn/ui CLI.
+3. Task 11 (MDX support) is also unblocked — can be combined with Task 6 or done immediately after.
+4. Generate Claude Code prompts in markdown code blocks for ALL file operations.
+5. Follow all voice rules and use only verified metrics for any content.
+6. Speed over polish. Ship deadline is Feb 26. Bias toward action.
+7. After each task, always generate the next prompt immediately — keep momentum.
+
+---
+
+## PROJECT FILE REFERENCES
+
+| File | Location |
+|------|----------|
+| CLAUDE.md | `portfolio-site/CLAUDE.md` |
+| MEMORY.md | `portfolio-site/MEMORY.md` |
+| DECISIONS.md | `portfolio-site/docs/DECISIONS.md` |
+| globals.css | `portfolio-site/src/styles/globals.css` |
+| Master Extraction | `portfolio/ShivaniDattani_Portfolio_Master_Extraction.md` |
+| Voice Guidelines | `project-instructions/ref_voice_guidelines.md` |
+| Verified Metrics | `project-instructions/ref_verified_metrics.md` |
+| Notion Tracker | https://www.notion.so/0cd2cbc711384266bab383d0891622cc |

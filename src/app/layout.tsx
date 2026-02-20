@@ -1,6 +1,5 @@
-﻿import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import type { Metadata } from "next"
+import { GeistSans, GeistMono, hourglassOfShine } from "@/lib/fonts"
 import "@/styles/globals.css"
 
 export const metadata: Metadata = {
@@ -14,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="bg-background text-primary font-sans antialiased">
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${hourglassOfShine.variable}`}>
+      <body className="bg-background text-foreground font-sans antialiased">
         {children}
       </body>
     </html>
