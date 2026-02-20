@@ -29,7 +29,9 @@
       "Bash(npm run build:*)",
       "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" add .)",
       "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" commit -m \"Install animation + icon libraries, fix encoding\")",
-      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" push origin main)"
+      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" push origin main)",
+      "Bash(git -C \"C:\\\\Shivani Claude\\\\PM Project\\\\portfolio-site\" log --oneline -3)",
+      "Bash(npx shadcn@latest add:*)"
     ]
   }
 }
