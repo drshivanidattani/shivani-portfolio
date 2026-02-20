@@ -81,9 +81,9 @@ export function Navbar() {
           <Image
             src="/logo.svg"
             alt="Shivani Dattani"
-            width={120}
-            height={36}
-            className="h-8 w-auto"
+            width={160}
+            height={48}
+            className="h-10 w-auto"
             priority
           />
         </Link>
