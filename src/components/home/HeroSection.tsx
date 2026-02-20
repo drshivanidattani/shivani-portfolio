@@ -1,10 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import Link from "next/link"
 import { ArrowDown, Sparkles } from "lucide-react"
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -15,7 +15,7 @@ const containerVariants = {
   },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -43,7 +43,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
           className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
         >
@@ -51,7 +51,7 @@ export function HeroSection() {
           <span className="text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] mix-blend-plus-lighter"> replace chaos</span>
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed tracking-wide"
         >
@@ -60,7 +60,7 @@ export function HeroSection() {
           Product Management.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
