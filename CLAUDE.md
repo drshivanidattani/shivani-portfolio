@@ -19,7 +19,7 @@ Personal portfolio website for PM role transition. Showcases 3-4 case studies de
 6. **Flag inconsistencies** with existing files. Don't silently overwrite.
 7. **Suggest improvements as suggestions** — flag them clearly and wait for confirmation.
 8. **CLAUDE.md is the living decision record.** Every locked decision must be reflected here. Before making ANY change to CLAUDE.md, state the proposed change and wait for explicit permission. Never modify silently.
-9. **Delegate execution to sub-agents.** Use the Task tool to spawn Sonnet sub-agents for routine execution — file creation, boilerplate code, copy operations, installations. Opus stays in the supervisory role: planning, reviewing output quality, catching errors. Do not burn Opus tokens on mechanical work.
+9. **Delegate execution to sub-agents.** Use the Task tool to spawn Sonnet sub-agents for routine execution — file creation, boilerplate code, copy operations, installations, **MCP/API tool calls** (Notion updates, web fetches, any multi-step tool sequences). Opus decides WHAT to do; Sonnet executes the actual calls. Do not burn Opus tokens on mechanical work.
 10. **Task list on every prompt.** At the start of every multi-step prompt, produce a numbered checklist of all tasks. Update each task as ✅ complete, ⏳ in progress, or ❌ failed as you go. Final summary must confirm all tasks are accounted for. No silent skips.
 11. **Show diffs before writing.** For any modification to an existing file, show what you're changing before saving. New files can be created directly.
 12. **Think, then act — within bounds.** Use the extended thinking tool to reason through implementation choices. When a decision falls within the latitude boundaries below, make the best call, note what you chose in a brief code comment, and keep moving. Do not stop to ask about implementation details that don't affect locked decisions.
@@ -198,7 +198,8 @@ If a metric is not listed above, flag it as: [NEEDS VERIFICATION: X]
 portfolio-site/
 ├── CLAUDE.md              ← This file. Auto-read by Claude Code.
 ├── .claude/
-│   └── settings.json
+│   ├── settings.json
+│   └── skills/          ← 10 curated skills (auto-discovered by Claude Code)
 ├── working/               ← Throwaway experiments, test files. Never deploy.
 ├── docs/
 │   └── DECISIONS.md       ← Locked design/architecture decisions
@@ -237,7 +238,7 @@ Case study content lives in `src/content/` as `.mdx` files. Page components in `
 
 ## Skills Reference
 
-10 skills are installed in `portfolio-site/skills/`. Read the relevant skill **before** starting the task it covers — don't read all 10 at once.
+10 skills are installed in `.claude/skills/` (auto-discovered by Claude Code). Read the relevant skill **before** starting the task it covers — don't read all 10 at once.
 
 ### When to Read Which Skill
 

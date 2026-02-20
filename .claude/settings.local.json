@@ -11,7 +11,17 @@
       "Bash(echo:*)",
       "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" remote add origin https://github.com/drshivanidattani/shivani-portfolio.git)",
       "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" ls-files:*)",
-      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" add .)"
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" add .)",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" commit -m \"Initial commit: project structure, design tokens, docs\")",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" push -u origin main)",
+      "Bash(git -C \"/c/Shivani Claude/PM Project/portfolio-site\" log --oneline -1)",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "mcp__claude_ai_Notion__notion-update-data-source",
+      "mcp__claude_ai_Notion__notion-search",
+      "mcp__claude_ai_Notion__notion-update-page",
+      "Bash(powershell.exe -NoProfile -Command:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
