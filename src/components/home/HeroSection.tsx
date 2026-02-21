@@ -57,9 +57,9 @@ export function HeroSection() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
         >
-          I build systems that<br className="max-sm:hidden" />
+          I build systems that
           <span className="inline-block relative h-[1.15em] overflow-hidden align-bottom">
             <AnimatePresence mode="wait">
               <motion.span
