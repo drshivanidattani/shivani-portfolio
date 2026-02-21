@@ -61,7 +61,9 @@ export function HeroSection() {
         >
           I build systems that
           <br className="md:hidden" />
-          <span className="relative inline-block md:inline-block max-md:block h-[1.2em] overflow-hidden max-md:mt-1 align-bottom">
+          <span className="relative inline-block max-md:block h-[1.2em] overflow-hidden max-md:mt-1 align-bottom">
+            {/* Invisible placeholder for width — uses longest phrase */}
+            <span className="invisible whitespace-nowrap">{" "}create structure</span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={rotatingPhrases[phraseIndex]}
@@ -69,7 +71,7 @@ export function HeroSection() {
                 animate={{ y: "0%", opacity: 1 }}
                 exit={{ y: "-100%", opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="absolute inset-x-0 text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)]"
+                className="absolute inset-0 text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)]"
               >
                 {" "}{rotatingPhrases[phraseIndex]}
               </motion.span>
