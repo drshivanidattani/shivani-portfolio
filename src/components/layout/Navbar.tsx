@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
+import { AnimatedLogo } from "./AnimatedLogo"
 
 const workLinks = [
   {
@@ -72,15 +73,13 @@ export function Navbar() {
     }`
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between relative">
         {/* Mobile hamburger (left or right, but let's keep it right and use absolute positioning for center logo) */}
 
         {/* Logo */}
         <Link href="/" className="text-primary shrink-0 flex items-center h-full">
-          <p className="font-decorative text-2xl max-md:text-xl">
-            Shivani Dattani
-          </p>
+          <AnimatedLogo className="h-8 max-md:h-6 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -94,7 +93,7 @@ export function Navbar() {
           >
             <button
               onClick={() => setWorkOpen(!workOpen)}
-              className={`flex items-center gap-1 text-sm transition-colors ${isWorkActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
+              className={`flex items-center gap-1 text-sm transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:origin-left after:transition-transform hover:after:scale-x-100 ${isWorkActive ? "text-primary font-medium after:scale-x-100" : "text-muted-foreground hover:text-foreground after:scale-x-0"
                 }`}
             >
               Work
@@ -128,7 +127,7 @@ export function Navbar() {
             )}
           </div>
 
-          <Link href="/the-path" className={linkClass("/the-path")}>
+          <Link href="/the-path" className={`${linkClass("/the-path")} relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:origin-left after:transition-transform hover:after:scale-x-100 ${isActive("/the-path") ? "after:scale-x-100" : "after:scale-x-0"}`}>
             My Journey
           </Link>
 
@@ -141,7 +140,7 @@ export function Navbar() {
           >
             <button
               onClick={() => setContactOpen(!contactOpen)}
-              className={`flex items-center gap-1 text-sm transition-colors text-muted-foreground hover:text-foreground`}
+              className={`flex items-center gap-1 text-sm transition-colors text-muted-foreground hover:text-foreground relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:origin-left after:transition-transform after:scale-x-0 hover:after:scale-x-100`}
             >
               Contact
               <ChevronDown className={`w-3.5 h-3.5 transition-transform ${contactOpen ? "rotate-180" : ""}`} />
