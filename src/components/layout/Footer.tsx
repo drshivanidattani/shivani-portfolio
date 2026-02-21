@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Linkedin, Mail } from "lucide-react"
 
 const navLinks = [
@@ -11,10 +12,19 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 py-16 max-md:py-10">
-        {/* Decorative name */}
-        <p className="font-decorative text-5xl max-md:text-3xl text-primary mb-8">
-          Shivani Dattani
-        </p>
+        {/* Custom SVG Logo */}
+        <div className="mb-8">
+          <Link href="/">
+            <Image
+              src="/logo.svg"
+              alt="Shivani Dattani"
+              width={250}
+              height={75}
+              className="h-20 max-md:h-16 w-auto"
+              priority
+            />
+          </Link>
+        </div>
 
         <div className="flex items-start justify-between max-md:flex-col max-md:gap-8">
           {/* Nav links */}

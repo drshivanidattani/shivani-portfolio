@@ -2,9 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { AnimatedLogo } from "./AnimatedLogo"
 import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
 
 const workLinks = [
@@ -77,11 +75,10 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-primary shrink-0 relative flex items-center h-full">
-          {/* We import AnimatedLogo dynamically or normally depending on setup, but it's a client component so normal import is fine */}
-          <div className="flex items-center">
-            <AnimatedLogo />
-          </div>
+        <Link href="/" className="text-primary shrink-0 flex items-center h-full">
+          <p className="font-decorative text-2xl max-md:text-xl">
+            Shivani Dattani
+          </p>
         </Link>
 
         {/* Desktop nav */}
