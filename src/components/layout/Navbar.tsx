@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
-import { AnimatedLogo } from "./AnimatedLogo"
+
 
 const workLinks = [
   {
@@ -79,7 +79,9 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="text-primary shrink-0 flex items-center h-full">
-          <AnimatedLogo className="h-8 max-md:h-6 w-auto" />
+          <p className="font-decorative text-2xl max-md:text-xl">
+            Shivani Dattani
+          </p>
         </Link>
 
         {/* Desktop nav */}
