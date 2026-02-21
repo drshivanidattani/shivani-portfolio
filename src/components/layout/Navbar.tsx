@@ -73,9 +73,14 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-primary shrink-0 flex items-center h-full">
+      <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between relative">
+        {/* Mobile hamburger (left or right, but let's keep it right and use absolute positioning for center logo) */}
+
+        {/* Placeholder to balance flex if needed, or simply absolute center the logo */}
+        <div className="w-24 max-md:hidden"></div>
+
+        {/* Logo - Centered absolutely */}
+        <Link href="/" className="text-primary absolute left-1/2 -translate-x-1/2 flex items-center h-full">
           <p className="font-decorative text-2xl max-md:text-xl">
             Shivani Dattani
           </p>
