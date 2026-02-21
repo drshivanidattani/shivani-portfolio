@@ -1,8 +1,11 @@
 "use client"
 
-import { motion, Variants } from "framer-motion"
+import { useState, useEffect } from "react"
+import { motion, Variants, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { ArrowDown, Sparkles } from "lucide-react"
+
+const rotatingPhrases = ["fuel growth", "create structure", "reduce risk"]
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -25,6 +28,15 @@ const itemVariants: Variants = {
 }
 
 export function HeroSection() {
+  const [phraseIndex, setPhraseIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhraseIndex((prev) => (prev + 1) % rotatingPhrases.length)
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative flex flex-col items-center justify-center min-h-[85vh] text-center px-4 overflow-hidden">
       {/* Background ambient glow specific to hero */}
@@ -48,7 +60,20 @@ export function HeroSection() {
           className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
         >
           I build systems that<br className="max-sm:hidden" />
-          <span className="text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] mix-blend-plus-lighter"> fuel growth</span>
+          <span className="inline-block relative h-[1.15em] overflow-hidden align-bottom">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={rotatingPhrases[phraseIndex]}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="inline-block text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] mix-blend-plus-lighter"
+              >
+                {" "}{rotatingPhrases[phraseIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
         </motion.h1>
 
         <motion.p
