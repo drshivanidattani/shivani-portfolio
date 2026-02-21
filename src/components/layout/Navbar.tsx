@@ -79,7 +79,7 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="text-primary shrink-0 flex items-center h-full">
-          <p className="font-decorative text-2xl max-md:text-xl translate-y-[6px]">
+          <p className="font-decorative text-2xl max-md:text-xl translate-y-[10px]">
             Shivani Dattani
           </p>
         </Link>
