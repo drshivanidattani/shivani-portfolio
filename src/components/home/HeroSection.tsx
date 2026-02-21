@@ -46,7 +46,7 @@ export function HeroSection() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-3xl mx-auto relative z-10 pt-16"
+        className="max-w-4xl mx-auto relative z-10 pt-16"
       >
         <motion.div variants={itemVariants} className="mb-6 flex justify-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-secondary/5 text-secondary-dark text-xs font-medium backdrop-blur-sm">
@@ -57,10 +57,11 @@ export function HeroSection() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
+          className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
         >
-          <span className="block">I build systems that</span>
-          <span className="block relative h-[1.2em] overflow-hidden">
+          I build systems that
+          <br className="md:hidden" />
+          <span className="relative inline-block md:inline-block max-md:block h-[1.2em] overflow-hidden max-md:mt-1 align-bottom">
             <AnimatePresence mode="wait">
               <motion.span
                 key={rotatingPhrases[phraseIndex]}
@@ -70,7 +71,7 @@ export function HeroSection() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="absolute inset-x-0 text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)]"
               >
-                {rotatingPhrases[phraseIndex]}
+                {" "}{rotatingPhrases[phraseIndex]}
               </motion.span>
             </AnimatePresence>
           </span>
