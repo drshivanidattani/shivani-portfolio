@@ -59,8 +59,8 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
         >
-          I build systems that
-          <span className="inline-block relative h-[1.15em] overflow-hidden align-bottom">
+          <span className="block">I build systems that</span>
+          <span className="block relative h-[1.2em] overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
                 key={rotatingPhrases[phraseIndex]}
@@ -68,9 +68,9 @@ export function HeroSection() {
                 animate={{ y: "0%", opacity: 1 }}
                 exit={{ y: "-100%", opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="inline-block text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] mix-blend-plus-lighter"
+                className="absolute inset-x-0 text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)]"
               >
-                {" "}{rotatingPhrases[phraseIndex]}
+                {rotatingPhrases[phraseIndex]}
               </motion.span>
             </AnimatePresence>
           </span>
