@@ -48,7 +48,7 @@ export function HeroSection() {
           className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6"
         >
           I build systems that<br className="max-sm:hidden" />
-          <span className="text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] mix-blend-plus-lighter"> replace chaos</span>
+          <span className="text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] mix-blend-plus-lighter"> fuel growth</span>
         </motion.h1>
 
         <motion.p
