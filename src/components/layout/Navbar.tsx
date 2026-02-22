@@ -35,7 +35,7 @@ const allWorkHrefs = workLinks.flatMap((s) => s.items.map((i) => i.href))
 
 export function Navbar() {
   const pathname = usePathname()
-  const { splashDone } = useSplash()
+  const { splashDone, logoRef } = useSplash()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [workOpen, setWorkOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
@@ -82,7 +82,9 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className={`text-primary shrink-0 flex items-center h-full transition-opacity duration-300 ${splashDone ? 'opacity-100' : 'opacity-0'}`}>
-          <AnimatedLogo className="h-8 max-md:h-6 w-auto translate-y-[10px]" />
+          <div ref={(el) => { logoRef.current = el }}>
+            <AnimatedLogo className="h-8 max-md:h-6 w-auto translate-y-[10px]" />
+          </div>
         </Link>
 
         {/* Desktop nav */}
