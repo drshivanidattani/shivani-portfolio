@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
-import { AnimatedLogo } from "./AnimatedLogo"
+
 import { useSplash } from "./SplashContext"
 
 
@@ -80,12 +80,13 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 max-md:px-4 h-full flex items-center justify-between relative">
         {/* Mobile hamburger (left or right, but let's keep it right and use absolute positioning for center logo) */}
 
-        {/* Logo */}
-        <Link href="/" className="text-primary shrink-0 flex items-center h-full">
-          <div ref={(el) => { logoRef.current = el }} className="translate-y-[10px]">
-            <AnimatedLogo className="h-8 max-md:h-6 w-auto" />
-          </div>
-        </Link>
+        {/* Logo placeholder — the actual logo lives in SplashScreen and collapses here */}
+        <div
+          ref={(el) => { logoRef.current = el }}
+          className="translate-y-[10px] h-8 max-md:h-6 shrink-0"
+          style={{ aspectRatio: "655.71 / 113.13" }}
+          aria-hidden="true"
+        />
 
         {/* Desktop nav */}
         <div className="flex items-center gap-8 max-md:hidden">
