@@ -81,7 +81,7 @@ export function Navbar() {
         {/* Mobile hamburger (left or right, but let's keep it right and use absolute positioning for center logo) */}
 
         {/* Logo */}
-        <Link href="/" className={`text-primary shrink-0 flex items-center h-full transition-opacity duration-300 ${splashDone ? 'opacity-100' : 'opacity-0'}`}>
+        <Link href="/" className="text-primary shrink-0 flex items-center h-full">
           <div ref={(el) => { logoRef.current = el }} className="translate-y-[10px]">
             <AnimatedLogo className="h-8 max-md:h-6 w-auto" />
           </div>
