@@ -82,8 +82,8 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className={`text-primary shrink-0 flex items-center h-full transition-opacity duration-300 ${splashDone ? 'opacity-100' : 'opacity-0'}`}>
-          <div ref={(el) => { logoRef.current = el }}>
-            <AnimatedLogo className="h-8 max-md:h-6 w-auto translate-y-[10px]" />
+          <div ref={(el) => { logoRef.current = el }} className="translate-y-[10px]">
+            <AnimatedLogo className="h-8 max-md:h-6 w-auto" />
           </div>
         </Link>
 
