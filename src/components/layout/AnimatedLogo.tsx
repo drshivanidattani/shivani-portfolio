@@ -1,23 +1,24 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
 import { LOGO_VIEWBOX, LOGO_PATHS } from "./logo-paths"
 
 interface AnimatedLogoProps {
     className?: string
+    /** Duration of the full stroke animation in seconds */
+    drawDuration?: number
+    /** Called when the entire animation (stroke + fill) is complete */
+    onAnimationComplete?: () => void
 }
 
-export function AnimatedLogo({ className }: AnimatedLogoProps) {
-    const [isDrawn, setIsDrawn] = useState(false)
-
-    const totalDuration = 2.5 // seconds for full signature
-    const perChar = totalDuration / LOGO_PATHS.length
-
-    useEffect(() => {
-        const timer = setTimeout(() => setIsDrawn(true), (totalDuration + 0.8) * 1000)
-        return () => clearTimeout(timer)
-    }, [])
+export function AnimatedLogo({
+    className,
+    drawDuration = 2.5,
+    onAnimationComplete,
+}: AnimatedLogoProps) {
+    const perChar = drawDuration / LOGO_PATHS.length
+    const fillDelay = drawDuration + 0.1
+    const fillDuration = 0.4
 
     return (
         <svg
@@ -30,15 +31,11 @@ export function AnimatedLogo({ className }: AnimatedLogoProps) {
                 <motion.path
                     key={i}
                     d={d}
+                    fill="#E74011"
                     stroke="#E74011"
                     strokeWidth={1.5}
-                    fill="#E74011"
                     initial={{ pathLength: 0, fillOpacity: 0, strokeOpacity: 1 }}
-                    animate={{
-                        pathLength: 1,
-                        fillOpacity: 1,
-                        strokeOpacity: 0,
-                    }}
+                    animate={{ pathLength: 1, fillOpacity: 1, strokeOpacity: 0 }}
                     transition={{
                         pathLength: {
                             duration: perChar,
@@ -46,16 +43,19 @@ export function AnimatedLogo({ className }: AnimatedLogoProps) {
                             ease: "easeInOut",
                         },
                         fillOpacity: {
-                            duration: 0.4,
-                            delay: i * perChar + perChar * 0.6,
+                            duration: fillDuration,
+                            delay: fillDelay,
                             ease: "easeIn",
                         },
                         strokeOpacity: {
                             duration: 0.3,
-                            delay: i * perChar + perChar,
+                            delay: fillDelay,
                             ease: "easeOut",
                         },
                     }}
+                    onAnimationComplete={
+                        i === LOGO_PATHS.length - 1 ? onAnimationComplete : undefined
+                    }
                 />
             ))}
         </svg>
