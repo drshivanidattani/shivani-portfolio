@@ -3,9 +3,11 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { AnimatedLogo } from "./AnimatedLogo"
+import { useSplash } from "./SplashContext"
 
 export function SplashScreen() {
     const [phase, setPhase] = useState<"drawing" | "collapsing" | "done">("drawing")
+    const { setSplashDone } = useSplash()
     const showSplash = phase === "drawing" || phase === "collapsing"
 
     if (!showSplash) return null
@@ -56,7 +58,10 @@ export function SplashScreen() {
                             ease: [0.76, 0, 0.24, 1],
                         }}
                         onAnimationComplete={() => {
-                            if (phase === "collapsing") setPhase("done")
+                            if (phase === "collapsing") {
+                                setSplashDone(true)
+                                setPhase("done")
+                            }
                         }}
                     >
                         <AnimatedLogo

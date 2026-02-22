@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown, Mail, Linkedin, Calendar } from "lucide-react"
 import { AnimatedLogo } from "./AnimatedLogo"
+import { useSplash } from "./SplashContext"
 
 
 const workLinks = [
@@ -34,6 +35,7 @@ const allWorkHrefs = workLinks.flatMap((s) => s.items.map((i) => i.href))
 
 export function Navbar() {
   const pathname = usePathname()
+  const { splashDone } = useSplash()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [workOpen, setWorkOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
@@ -79,7 +81,7 @@ export function Navbar() {
         {/* Mobile hamburger (left or right, but let's keep it right and use absolute positioning for center logo) */}
 
         {/* Logo */}
-        <Link href="/" className="text-primary shrink-0 flex items-center h-full">
+        <Link href="/" className={`text-primary shrink-0 flex items-center h-full transition-opacity duration-300 ${splashDone ? 'opacity-100' : 'opacity-0'}`}>
           <AnimatedLogo className="h-8 max-md:h-6 w-auto translate-y-[10px]" />
         </Link>
 
