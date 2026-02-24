@@ -5,7 +5,7 @@ import { motion, Variants, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { ArrowDown } from "lucide-react"
 
-const rotatingPhrases = ["fuel growth", "create structure", "reduce risk"]
+const rotatingPhrases = ["fuel growth", "optimize flow", "reduce risk"]
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -46,16 +46,16 @@ export function HeroSection() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-4xl mx-auto relative z-10 pt-16"
+        className="max-w-6xl mx-auto relative z-10 pt-16 px-4 md:px-8 flex flex-col items-center"
       >
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6 flex flex-col md:flex-row items-center justify-center gap-x-3"
+          className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/70 leading-[1.1] mb-6 flex flex-col md:flex-row items-center justify-center gap-x-3 w-full"
         >
-          I build systems that
-          <span className="relative inline-block h-[1.2em] overflow-hidden align-bottom">
-            {/* Invisible placeholder for width — uses longest phrase */}
-            <span className="invisible whitespace-nowrap">create structure</span>
+          <span className="flex-shrink-0 text-center md:text-right">I build systems that</span>
+          <span className="relative inline-flex flex-col justify-center overflow-hidden min-w-[5.5em]">
+            {/* Invisible placeholder for exact height and width — uses longest phrase */}
+            <span className="invisible whitespace-nowrap">optimize flow</span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={rotatingPhrases[phraseIndex]}
@@ -63,7 +63,7 @@ export function HeroSection() {
                 animate={{ y: "0%", opacity: 1 }}
                 exit={{ y: "-100%", opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="absolute inset-0 text-primary drop-shadow-[0_0_20px_rgba(231,64,17,0.35)] whitespace-nowrap text-left"
+                className="absolute inset-0 flex items-center justify-center md:justify-start text-primary whitespace-nowrap"
               >
                 {rotatingPhrases[phraseIndex]}
               </motion.span>

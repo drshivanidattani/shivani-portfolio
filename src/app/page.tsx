@@ -7,7 +7,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Work sections */}
-      <div id="work" className="max-w-5xl mx-auto px-4 sm:px-6 pb-32">
+      <div id="work" className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pb-32">
         {/* From the Field */}
         <section className="mb-24 relative">
           <div className="flex items-center gap-4 mb-4">
